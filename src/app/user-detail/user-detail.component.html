@@ -1,0 +1,30 @@
+<!-- src/app/user-detail/user-detail.component.html -->
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <table *ngIf="user$ | async as user" border="1" cellpadding="10" cellspacing="0">
+      <tr>
+        <th>ID</th>
+        <td>{{ user.id }}</td>
+      </tr>
+      <tr>
+        <th>Username</th>
+        <td>{{ user.username }}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{{ user.email }}</td>
+      </tr>
+      <tr>
+        <th>Registration Time</th>
+        <td>{{ user.registrationTime }}</td>
+      </tr>
+      <tr>
+        <th>Last Login</th>
+        <td>{{ user.lastLogin }}</td>
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td [style.color]="user.status === 'Confirmed' ? 'green' : 'red'">{{ user.status }}</td>
+      </tr>
+    </table>
+  </div>
+  

@@ -1,0 +1,25 @@
+<h2>User List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Registration Time</th>
+      <th>Last Login</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of (users$ | async)" (click)="viewUserDetails(user.id)">
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.registrationTime }}</td>
+      <td>{{ user.lastLogin }}</td>
+      <td>
+        <span [ngClass]="{'active': user.status === 'Confirmed', 'inactive': user.status === 'Blocked'}">
+          {{ user.status }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
